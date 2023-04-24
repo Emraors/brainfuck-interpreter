@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "brainfuck-interpreter:lib"
+
+    - path: "./app/Main.hs"
+      component: "brainfuck-interpreter:exe:brainfuck-interpreter-exe"
+
+    - path: "./app/Paths_brainfuck_interpreter.hs"
+      component: "brainfuck-interpreter:exe:brainfuck-interpreter-exe"
+
+    - path: "./test"
+      component: "brainfuck-interpreter:test:brainfuck-interpreter-test"
