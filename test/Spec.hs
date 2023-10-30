@@ -1,13 +1,12 @@
 import Control.Monad.State
+import Data.ByteString.Char8 (pack)
 import Evaluator
 import Parser
 import System.IO.Silently
 import Test.Hspec
+import Test.Main
 import Test.QuickCheck
 import Types
-import Test.Main
-import Data.ByteString.Char8 (pack)
-
 
 main :: IO ()
 main = hspec $ do
