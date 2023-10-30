@@ -1,19 +1,21 @@
 {-# LANGUAGE LambdaCase #-}
+
 module Parser
-    ( someFunc
-    , parseBrainfuck
-    , parseChar
-    , parseInput
-    , parseLoop
-    , parseLoopToken
-    , parseMinus
-    , parsePlus
-    , parseMoveLeft
-    , parseMoveRight
-    , parseOutput
-    , parseToken
-    , runParser
-    ) where
+  ( someFunc,
+    parseBrainfuck,
+    parseChar,
+    parseInput,
+    parseLoop,
+    parseLoopToken,
+    parseMinus,
+    parsePlus,
+    parseMoveLeft,
+    parseMoveRight,
+    parseOutput,
+    parseToken,
+    runParser,
+  )
+where
 
 import Control.Applicative
 import Types
@@ -23,8 +25,8 @@ someFunc = putStrLn "someFunc"
 
 satisfy :: (Char -> Bool) -> Parser Char
 satisfy p = Parser $ \input -> case input of
-    [] -> Nothing
-    (x:xs) -> if p x then Just (x, xs) else Nothing
+  [] -> Nothing
+  (x : xs) -> if p x then Just (x, xs) else Nothing
 
 parseChar :: Char -> Parser Char
 parseChar c = satisfy (== c)
@@ -54,13 +56,14 @@ parseLoopToken :: Parser Exp
 parseLoopToken = Loop <$> parseLoop
 
 parseToken :: Parser Exp
-parseToken = parsePlus
-         <|> parseMinus
-         <|> parseMoveLeft
-         <|> parseMoveRight
-         <|> parseInput
-         <|> parseOutput
-         <|> parseLoopToken
+parseToken =
+  parsePlus
+    <|> parseMinus
+    <|> parseMoveLeft
+    <|> parseMoveRight
+    <|> parseInput
+    <|> parseOutput
+    <|> parseLoopToken
 
 parseBrainfuck :: Parser Program
 parseBrainfuck = many parseToken

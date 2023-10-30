@@ -1,11 +1,12 @@
 module Evaluator
-    ( eval
-    , evalExpr
-    ) where
+  ( eval,
+    evalExpr,
+  )
+where
 
-import Types
+import Control.Monad.Free
 import Control.Monad.State
-
+import Types
 
 evalExpr :: Exp -> StateT Tape IO ()
 evalExpr Plus = modify (\(l, c, r) -> (l, c + 1, r))

@@ -1,8 +1,8 @@
 module Types
-  ( Exp (..)
-  , Parser (..)
-  , Tape
-  , Program
+  ( Exp (..),
+    Parser (..),
+    Tape,
+    Program,
   )
 where
 
